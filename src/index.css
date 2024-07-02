@@ -1,13 +1,276 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
 }
+
+body {
+  background-color: hsl(203, 41%, 72%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.app {
+  position: relative;
+  min-width: 375px;
+  min-height: 66vh;
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+}
+.app .mortgage {
+  min-height: inherit;
+  background-color: hsl(0, 0%, 100%);
+  padding: 25px;
+  border-radius: 15px 0 0 15px;
+  color: hsl(200, 24%, 40%);
+  gap: 10px;
+  position: relative;
+}
+.app .mortgage .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 20px;
+  color: hsl(202, 55%, 16%);
+  font-size: 15px;
+}
+.app .mortgage .header .subTitle {
+  color: hsl(202, 55%, 16%);
+}
+.app .mortgage .header p {
+  text-decoration: underline;
+  color: hsl(200, 24%, 40%);
+}
+.app .mortgage .inputField {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.app .mortgage .inputField span {
+  position: relative;
+  background-color: hsl(203, 41%, 72%);
+  color: hsl(200, 24%, 40%);
+  padding: 8.2px;
+  border: 1px solid hsl(200, 24%, 40%);
+  font-weight: bold;
+  align-self: center;
+}
+.app .mortgage .inputField input {
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+  outline: none;
+  border: 1px solid hsl(200, 24%, 40%);
+}
+.app .mortgage .inputField .dollar {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  left: 2px;
+}
+.app .mortgage .inputField .dollar + input {
+  flex-grow: 1;
+}
+.app .mortgage .details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  position: relative;
+}
+.app .mortgage .details .field {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.app .mortgage .details .field .inputField input {
+  width: 100%;
+  border-radius: 0;
+  border-right: none;
+}
+.app .mortgage .details .field .inputField span {
+  right: 2px;
+  position: relative;
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+}
+.app .mortgage .radio {
+  display: flex;
+  justify-content: start;
+  padding: 10px 0;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+.app .mortgage .radio p {
+  margin-top: 10px;
+}
+.app .mortgage .radio div {
+  padding: 15px;
+  border: solid 1px hsl(200, 24%, 40%);
+  transition: 0.5s;
+  width: 100%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.app .mortgage .radio div input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-right: 15px;
+  position: relative;
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 100%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+.app .mortgage .radio div .selected:checked::after {
+  content: "";
+  display: block;
+  background-color: rgb(199, 209, 10);
+  position: absolute;
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.app .mortgage .radio div:hover {
+  border: 1px solid rgb(242, 242, 135);
+  background-color: rgba(248, 248, 184, 0.736);
+}
+.app .mortgage .button {
+  position: relative;
+  padding: 10px;
+  justify-content: start;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(199, 209, 10);
+  border: none;
+  font-size: 16px;
+}
+.app .mortgage .button img {
+  margin: 0 20px;
+}
+.app .mortgage .button:hover {
+  background-color: rgba(199, 209, 10, 0.457);
+}
+.app .shownHere {
+  background-color: hsl(202, 55%, 16%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: hsl(200, 24%, 40%);
+  padding: 25px;
+  border-radius: 0 10px 10px 50px;
+  position: relative;
+  text-align: center;
+}
+.app .shownHere h3 {
+  color: hsl(0, 0%, 100%);
+  margin: 20px auto;
+}
+.app .shownHere::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  z-index: -1;
+  background-color: hsl(0, 0%, 100%);
+  left: 0;
+  top: 0;
+}
+.app .yourResult {
+  text-align: start;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.app .yourResult h3 {
+  margin: 20px 0px;
+}
+.app .yourResult .card {
+  margin: 50px auto;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgba(28, 28, 28, 0.659);
+  border-top: 3px solid rgb(199, 209, 10);
+  padding: 15px;
+  width: 100%;
+}
+.app .yourResult .card p {
+  text-align: start;
+  font-size: 14px;
+}
+.app .yourResult .card h2 {
+  padding: 10px;
+  font-size: 50px;
+  color: rgb(199, 209, 10);
+  position: relative;
+}
+.app .yourResult .card h2::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: hsl(200, 24%, 40%);
+}
+.app .yourResult .card .finalText {
+  margin: 30px 0;
+}
+.app .yourResult .card .finalText h3 {
+  margin: 10px 0;
+}
+
+@media (max-width: 375px) {
+  body {
+    padding: 10px;
+  }
+  body .app {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+  body .app .mortgage {
+    border-radius: 0;
+  }
+  body .app .shownHere {
+    border-radius: 0;
+  }
+  body .app .shownHere::before {
+    display: none;
+  }
+}
+.validate {
+  background-color: red !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+
+.textValidate {
+  color: rgb(201, 20, 20);
+  font-size: 13px;
+  padding-top: 5px;
+}/*# sourceMappingURL=index.css.map */

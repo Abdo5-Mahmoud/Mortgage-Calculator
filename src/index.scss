@@ -1,0 +1,356 @@
+$MobileWidth: 375px;
+$DesktopWidth: 1440px;
+$White: hsl(0, 0%, 100%);
+$totalTextColor: hsl(202, 86%, 94%);
+$bodyBackground: hsl(203, 41%, 72%);
+$iconscolor: hsl(200, 26%, 54%);
+$textcolor: hsl(200, 24%, 40%);
+$resultColor: hsl(202, 55%, 16%);
+$yellowColor: rgb(199, 209, 10);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+body {
+    background-color: $bodyBackground;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.app {
+    position: relative;
+    min-width: $MobileWidth;
+    min-height: 66vh;
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
+
+    .mortgage {
+        min-height: inherit;
+        background-color: $White;
+        padding: 25px;
+        border-radius: 15px 0 0 15px;
+        color: $textcolor;
+        gap: 10px;
+        position: relative;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0 20px;
+            color: $resultColor;
+            font-size: 15px;
+
+            .subTitle {
+                color: $resultColor;
+            }
+
+            p {
+                text-decoration: underline;
+                color: $textcolor;
+            }
+
+
+        }
+
+        .inputField {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+
+            // gap: 10px;
+
+            span {
+                position: relative;
+                background-color: $bodyBackground;
+                color: $textcolor;
+                padding: 8.2px;
+                border: 1px solid $textcolor;
+                font-weight: bold;
+                // font-size: 1.1rem;
+                align-self: center;
+            }
+
+            input {
+                padding: 10px;
+                border-radius: 0 5px 5px 0;
+                outline: none;
+                border: 1px solid $textcolor;
+            }
+
+            .dollar {
+                border-right: none;
+                border-radius: 5px 0 0 5px;
+                left: 2px
+            }
+
+            .dollar+input {
+                flex-grow: 1;
+
+            }
+
+
+
+
+        }
+
+
+        .details {
+            // width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // justify-content: space-evenly;
+            gap: 10px;
+            position: relative;
+
+
+            .field {
+                margin-top: 20px;
+                // width: 40%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+                .inputField {
+                    input {
+                        width: 100%;
+                        border-radius: 0;
+                        border-right: none;
+
+                    }
+
+                    span {
+                        right: 2px;
+                        position: relative;
+                        border-radius: 0 5px 5px 0;
+                        border-left: none;
+
+                    }
+                }
+
+            }
+        }
+
+        .radio {
+            display: flex;
+            justify-content: start;
+            padding: 10px 0;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+
+            p {
+                margin-top: 10px;
+            }
+
+            div {
+                padding: 15px;
+                border: solid 1px $textcolor;
+                transition: .5s;
+                width: 100%;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+
+                input[type=radio] {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    margin-right: 15px;
+                    position: relative;
+                    border-radius: 50%;
+                    background-color: $White;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                }
+
+                .selected:checked::after {
+                    content: '';
+                    display: block;
+                    background-color: $yellowColor;
+                    position: absolute;
+                    border-radius: 50%;
+                    width: 11px;
+                    height: 11px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+
+
+                }
+            }
+
+            div:hover {
+                border: 1px solid rgb(242, 242, 135);
+                background-color: rgba(248, 248, 184, 0.736);
+            }
+
+        }
+
+        .button {
+            position: relative;
+            padding: 10px;
+            justify-content: start;
+            display: flex;
+            align-items: center;
+            // width: 60%;
+            border-radius: 20px;
+            background-color: $yellowColor;
+            border: none;
+            font-size: 16px;
+
+            img {
+                margin: 0 20px;
+            }
+        }
+
+        .button:hover {
+            background-color: rgba(199, 209, 10, 0.457);
+        }
+    }
+
+
+    .shownHere {
+        background-color: $resultColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: $textcolor;
+        padding: 25px;
+        border-radius: 0 10px 10px 50px;
+        position: relative;
+        text-align: center;
+
+        h3 {
+            color: $White;
+            margin: 20px auto;
+        }
+    }
+
+    .shownHere::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 50px;
+        z-index: -1;
+        background-color: $White;
+        left: 0;
+        top: 0;
+    }
+
+    .yourResult {
+        text-align: start;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+
+        h3 {
+            margin: 20px 0px;
+        }
+
+        .card {
+            margin: 50px auto;
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            flex-direction: column;
+            border-radius: 5px;
+            background-color: rgba(28, 28, 28, 0.659);
+            border-top: 3px solid $yellowColor;
+            padding: 15px;
+            width: 100%;
+
+            p {
+                text-align: start;
+                font-size: 14px;
+            }
+
+            h2 {
+                padding: 10px;
+                font-size: 50px;
+                color: $yellowColor;
+                position: relative;
+            }
+
+            h2::after {
+                content: '';
+                height: 1px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%);
+                background-color: $textcolor;
+            }
+
+            .finalText {
+                margin: 30px 0;
+
+                h3 {
+                    margin: 10px 0;
+                }
+            }
+
+        }
+    }
+}
+
+@media (max-width:$MobileWidth) {
+    body {
+        padding: 10px;
+
+        .app {
+
+            grid-template-columns: auto;
+            grid-template-rows: auto auto;
+
+            .mortgage {
+                border-radius: 0;
+            }
+
+            .shownHere {
+                border-radius: 0;
+            }
+
+            .shownHere::before {
+                display: none;
+            }
+
+        }
+
+    }
+
+}
+
+
+.validate {
+    background-color: red !important;
+    color: $White !important;
+}
+
+.textValidate {
+    color: rgb(201, 20, 20);
+    font-size: 13px;
+    padding-top: 5px;
+}
